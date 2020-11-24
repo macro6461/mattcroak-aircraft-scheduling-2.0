@@ -1,0 +1,182 @@
+.App {
+  text-align: center;
+  padding: 10px;
+  color: #001f3d;
+}
+
+.App > div > .flexed {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+
+.leftRight{
+  position: relative;
+  min-width: 250px;
+  height: 100%;
+  margin: 0 10px 0 10px;
+  color: #001f3d;
+  border: solid 1px #001f3d;
+}
+
+.rotation{
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.rotation > .rotationInner {
+  min-width: 500px;
+}
+
+.flightStuff .leftRight, .flightStuff > .rotation{
+  height: 500px;
+  overflow-y: auto;
+}
+
+.banner{
+  border: none;
+}
+
+.rotation.banner > hr{
+  width: 80%;
+}
+
+.item {
+  cursor: pointer;
+  padding: 10px 0;
+  width: 100%;
+  transition: all 0.3s;
+  color: #001f3d;
+  background-color: white;
+  position: relative;
+}
+
+.item:hover{
+  background-color: #001f3d;
+  color: white;
+}
+
+.item.chosen{
+  background-color: #001f3d;
+  color: white;
+}
+
+.item.rot{
+  display: flex;
+  /* justify-content: space-evenly; */
+  align-items: center;
+  border: solid 1px #001f3d;
+  margin-bottom: 5px;
+  width: 99%;
+}
+
+.item.rot > div{
+  width: 100%;
+  text-align: left;
+  margin-left: 10px;
+}
+
+.item.rot > div > p{
+  margin-left: 15px;
+}
+
+.pagination{
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pagination > button {
+  background-color: #001f3d;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.flightInner{
+  display: flex;
+  justify-content: space-between;
+}
+
+.flightInner > div {
+  margin: 0 10px;
+}
+
+.flightInner p {
+  margin: 5px;
+}
+
+.flightMask{
+  background-color: white;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.tickers{
+  display: flex; 
+  justify-content: space-between;
+  position: relative;
+}
+
+.tickerLine{
+  width: 99.5%;
+  height: 5px;
+  border: solid 1px #001f3d;
+  position: absolute;
+  bottom: 8px;
+  border-bottom: none;
+}
+
+.serviceBlock, .turnaroundBlock{
+  position: absolute;
+  background-color: green;
+  top: -18px;
+  height: 23px;
+}
+
+.turnaroundBlock{
+  background-color: purple;
+  width: 9px;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 200px;
+  background-color: white;
+  color: #001f3d;
+  text-align: center;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  top: 0;
+  right: 140%;
+  z-index: 1;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 8%;
+  left: 100%;
+  margin-left: 0px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent white;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}

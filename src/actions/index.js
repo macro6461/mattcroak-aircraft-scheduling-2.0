@@ -37,3 +37,7 @@ export function removeFromRotation(payload) {
 export function sortRotation(payload) {
     return { type: "SORT_ROTATION", payload }
 };
+
+export function setDate(payload) {
+    return { type: "SET_DATE", payload }
+};

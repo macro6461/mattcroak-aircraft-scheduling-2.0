@@ -6,6 +6,7 @@ export default function rootReducer(state={
     inRotation: {},
     rotationMap: {},
     currentDate: null,
+    initCurrentDate: null,
     currentDateNotReadable: null,
     selectedAircraft: null,
     offset: 0,
@@ -20,12 +21,13 @@ export default function rootReducer(state={
         case "GET_AIRCRAFTS":
              //initialize date with tomorrow's date
              const today = new Date()
-             const currentDateNotReadable = new Date(today)
+             var currentDateNotReadable = new Date(today)
              currentDateNotReadable.setDate(currentDateNotReadable.getDate() + 1)
+             var initCurrentDate = currentDateNotReadable
 
              var currentDate = genReadableDate(currentDateNotReadable)
 
-            return {...state, currentDate, currentDateNotReadable}
+            return {...state, currentDate, currentDateNotReadable, initCurrentDate}
         case "GET_FLIGHTS":
             return {...state}
         case "GET_AIRCRAFTS_SUCCESS":
@@ -93,10 +95,12 @@ export default function rootReducer(state={
             rotations = handleDestinationMatch(rotations)
 
             return {...state, rotations, inRotation: newRotationObj, usability}
-            case "SORT_ROTATION":
-                var rotations = action.payload;
-                rotations = handleDestinationMatch(rotations)
-                return {...state, rotations}
+            case "SET_DATE":
+                var {currentDate, currentDateNotReadable} = action.payload;
+
+                debugger
+
+                return {...state, currentDate, currentDateNotReadable}
         default:
             return state;
     }
